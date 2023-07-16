@@ -10,6 +10,14 @@ export function main(): void {
         arr.length = gridSize;
         arr.fill(0);
     });
+
+    // place starting cell values
+    let x = Math.floor(Math.random() * gridSize);
+    let y = Math.floor(Math.random() * gridSize);
+    gridVals[y][x] = 2;
+    x = Math.floor(Math.random() * gridSize);
+    y = Math.floor(Math.random() * gridSize);
+    gridVals[y][x] = 2;
 }
 
 export function slide(dir: Direction): void {
