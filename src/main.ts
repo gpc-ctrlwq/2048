@@ -141,7 +141,7 @@ export function slide(dir: Direction): void {
             break;
 
         default:
-            (function assertNever(val: never): never { throw new Error("Default reached with: " + val); })(dir);
+            (function assertNever(val: any): never { throw 'Default reached with: ' + val; })(dir);
     }
 }
 

@@ -1,5 +1,5 @@
 
-export enum SlideDirection {
+export enum Direction {
     'left',
     'right',
     'up',
