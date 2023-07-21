@@ -2,7 +2,7 @@
     "name": "2048",
     "version": "1.0.0",
     "description": "2048 Number sliding game",
-    "main": "index.js",
+    "main": "index.ts",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "npx tsc -b --pretty"
@@ -22,6 +22,7 @@
     },
     "homepage": "https://github.com/gpc-ctrlwq/2048#readme",
     "devDependencies": {
+        "@types/node": "^20.4.2",
         "typescript": "^5.1.6"
     }
 }

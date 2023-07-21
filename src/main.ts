@@ -3,7 +3,7 @@ import { Direction } from "./types";
 const gridSize = 4;
 const gridVals: Array<Array<number>> = []; // [row][col], (0,0) is top left
 
-export function main(): void {
+export function init(): void {
     // init arrays
     gridVals.length = gridSize;
     gridVals.forEach(arr => {
@@ -12,12 +12,8 @@ export function main(): void {
     });
 
     // place starting cell values
-    let x = Math.floor(Math.random() * gridSize);
-    let y = Math.floor(Math.random() * gridSize);
-    gridVals[y][x] = 2;
-    x = Math.floor(Math.random() * gridSize);
-    y = Math.floor(Math.random() * gridSize);
-    gridVals[y][x] = 2;
+    addCell();
+    addCell();
 }
 
 export function slide(dir: Direction): void {
@@ -153,3 +149,21 @@ export function slide(dir: Direction): void {
     }
 }
 
+export function addCell() {
+    // get empty positions
+    const empty: Array<[y: number, x: number]> = [];
+    for (let y = 0; y < gridSize; ++y) {
+        for (let x = 0; x < gridSize; ++x) {
+            if (gridVals[y][x] === 0) {
+                empty.push([x, y]);
+            }
+        }
+    }
+
+    if (empty.length === 0) {
+        return;
+    }
+
+    const cell = Math.floor(Math.random() * empty.length);
+    gridVals[empty[cell][0]][empty[cell][1]] = 2;
+}
