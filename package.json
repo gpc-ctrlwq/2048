@@ -3,9 +3,11 @@
     "version": "1.0.0",
     "description": "2048 Number sliding game",
     "main": "index.ts",
+    "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "npx tsc -b --pretty"
+        "build": "npx tsc -b --pretty && vite build",
+        "dev": "vite"
     },
     "repository": {
         "type": "git",
@@ -22,7 +24,8 @@
     },
     "homepage": "https://github.com/gpc-ctrlwq/2048#readme",
     "devDependencies": {
-        "@types/node": "^20.4.2",
-        "typescript": "^5.1.6"
+        "@types/node": "^20.4.4",
+        "typescript": "^5.1.6",
+        "vite": "^4.4.6"
     }
 }

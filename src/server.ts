@@ -9,11 +9,11 @@ server.listen(4040, 'localhost', () => {
 });
 
 function dispatch(req: IncomingMessage, res: ServerResponse<IncomingMessage>) {
-    const basePath = 'dist';
+    const basePath = './build';
     let filePath = basePath + req.url;
 
     // set corrent content type
-    let contentType = 'text/html';
+    let contentType = '';
     const ext = extname(filePath);
     switch (ext) {
         case '.js':
@@ -22,11 +22,22 @@ function dispatch(req: IncomingMessage, res: ServerResponse<IncomingMessage>) {
         case '.css':
             contentType = 'text/css';
             break;
+        case '.map':
+            contentType = 'application/json';
+            break;
+        case '.ts':
+            contentType = 'application/typescript';
+            filePath = './src' + req.url;
+            break;
+        default:
+            console.log('content type missing for: ' + req.url);
+            break;
     }
 
     // default response
     if (filePath == basePath + '/') {
         filePath += 'index.html';
+        contentType = 'text/html';
     }
 
     // Write response
@@ -36,7 +47,7 @@ function dispatch(req: IncomingMessage, res: ServerResponse<IncomingMessage>) {
             res.end(err.message);
         }
         else {
-            res.writeHead(200, {'content-type': contentType});
+            res.writeHead(200, { 'content-type': contentType });
             res.end(content, 'utf-8');
         }
     });
