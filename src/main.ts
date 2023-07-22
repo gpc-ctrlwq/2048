@@ -1,15 +1,14 @@
 import { Direction } from "./types";
 
-export const gridSize = 4;
-export const gridVals: Array<Array<number>> = []; // [row][col], (0,0) is top left
+const gridSize = 4;
+const gridVals: Array<Array<number>> = []; // [row][col], (0,0) is top left
 
 export function init(): void {
     // init arrays
     gridVals.length = gridSize;
-    gridVals.forEach(arr => {
-        arr.length = gridSize;
-        arr.fill(0);
-    });
+    for (let arr = 0; arr < gridSize; ++arr) {
+        gridVals[arr] = Array(gridSize).fill(0);
+    }
 
     // place starting cell values
     addCell();
