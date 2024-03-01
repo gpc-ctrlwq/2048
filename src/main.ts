@@ -1,7 +1,7 @@
 import { Direction } from "./types";
 
-const gridSize = 4;
-const gridVals: Array<Array<number>> = []; // [row][col], (0,0) is top left
+export const gridSize = 4;
+export const gridVals: Array<Array<number>> = []; // [row][col], (0,0) is top left
 
 export function init(): void {
     // init arrays
