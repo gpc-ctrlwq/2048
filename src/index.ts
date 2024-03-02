@@ -1,7 +1,20 @@
 import { addCell, gridVals, init, slide } from './main';
 import { Direction } from './types';
 
-// TODO get grid elements
+// get grid elements
+const gridElements: Array<Array<Element>> = [];
+const rows = document.getElementsByClassName("row");
+let cell: Element | null;
+for (let ii = 0; ii < rows.length; ii++) {
+    gridElements.push([]);
+    for (let kk = 0; kk < rows[ii].childElementCount; kk++) {
+        cell = rows[ii].children.item(kk);
+        if(!cell) {
+            throw 'null element recieved';
+        }
+        gridElements[ii][kk] = cell;
+    }
+}
 
 init();
 draw();
@@ -37,9 +50,7 @@ function draw() {
     for (let row = 0; row < gridVals.length; row++) {
         for (let col = 0; col < gridVals[row].length; col++) {
             console.log(gridVals[row][col]);
-            //if (gridVals[row][col] > 0) {
-            // TODO draw number here
-            //}
+            gridElements[row][col].textContent = gridVals[row][col].toString();
         }
         console.log('end');
     }
@@ -47,5 +58,4 @@ function draw() {
 
 // handle input
 window.addEventListener('keyup', handleKey);
-
 
