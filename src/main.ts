@@ -11,8 +11,8 @@ export function init(): void {
     }
 
     // place starting cell values
-    addCell();
-    addCell();
+    addValueToEmptyCell();
+    addValueToEmptyCell();
 }
 
 export function slide(dir: Direction): void {

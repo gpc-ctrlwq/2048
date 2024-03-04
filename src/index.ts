@@ -1,4 +1,4 @@
-import { addCell, gridVals, init, slide } from './main';
+import { addValueToEmptyCell, gridVals, init, slide } from './main';
 import { Direction } from './types';
 
 // get grid elements
@@ -42,15 +42,19 @@ function handleKey(event: KeyboardEvent) {
             return;
     }
 
+    addValueToEmptyCell();
     draw();
-    addCell();
 };
 
 function draw() {
     for (let row = 0; row < gridVals.length; row++) {
         for (let col = 0; col < gridVals[row].length; col++) {
-            console.log(gridVals[row][col]);
-            gridElements[row][col].textContent = gridVals[row][col].toString();
+            if (gridVals[row][col] === 0) {
+                gridElements[row][col].textContent = '-';
+            }
+            else {
+                gridElements[row][col].textContent = gridVals[row][col].toString();
+            }
         }
         console.log('end');
     }
