@@ -148,12 +148,12 @@ export function slide(dir: Direction): void {
     }
 }
 
-export function addCell() {
+export function addValueToEmptyCell() {
     // get empty positions
     const empty: Array<[y: number, x: number]> = [];
     for (let y = 0; y < gridSize; ++y) {
         for (let x = 0; x < gridSize; ++x) {
-            if (gridVals[y][x] === 0) {
+            if (gridVals[x][y] === 0) {
                 empty.push([x, y]);
             }
         }
