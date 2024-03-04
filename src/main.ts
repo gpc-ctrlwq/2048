@@ -153,8 +153,8 @@ export function addValueToEmptyCell() {
     const empty: Array<[y: number, x: number]> = [];
     for (let y = 0; y < gridSize; ++y) {
         for (let x = 0; x < gridSize; ++x) {
-            if (gridVals[x][y] === 0) {
-                empty.push([x, y]);
+            if (gridVals[y][x] === 0) {
+                empty.push([y, x]);
             }
         }
     }
