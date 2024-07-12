@@ -166,3 +166,11 @@ export function addValueToEmptyCell() {
     const cell = Math.floor(Math.random() * empty.length);
     gridVals[empty[cell][0]][empty[cell][1]] = 2;
 }
+
+export function getScore(): Number {
+    let score = 0
+
+    gridVals.forEach(arr => arr.forEach(val => score += val));
+    
+    return score;
+}
